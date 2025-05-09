@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - Dev4RBX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0A0A0A;
+      color: #FFFFFF;
+    }
+    header {
+      background-color: #0A0A0A;
+      padding: 20px 40px;
+      border-bottom: 1px solid #1A1A1A;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #007BFF;
+    }
+    .settings-container {
+      padding: 40px;
+    }
+    .settings-section {
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    select {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #1A1A1A;
+      color: #FFFFFF;
+    }
+    .btn-primary {
+      margin-top: 20px;
+      background-color: #007BFF;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    body.light-mode {
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+    body.light-mode header {
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #CCCCCC;
+    }
+    body.light-mode .logo {
+      color: #007BFF;
+    }
+    body.light-mode select {
+      background-color: #F0F0F0;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Dev4RBX</div>
+  </header>
+
+  <div class="settings-container">
+    <h2>Customize Your Experience</h2>
+
+    <div class="settings-section">
+      <label for="theme">Theme</label>
+      <select id="theme">
+        <option value="dark">Dark Mode</option>
+        <option value="light">Light Mode</option>
+      </select>
+    </div>
+
+    <button class="btn-primary" onclick="applySettings()">Save Settings</button>
+  </div>
+
+  <script>
+    function applySettings() {
+      const theme = document.getElementById('theme').value;
+      document.body.classList.toggle('light-mode', theme === 'light');
+      localStorage.setItem('site-theme', theme);
+    }
+
+    // Apply theme on page load
+    window.onload = function () {
+      const savedTheme = localStorage.getItem('site-theme') || 'dark';
+      document.getElementById('theme').value = savedTheme;
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    }
+  </script>
+</body>
+</html>

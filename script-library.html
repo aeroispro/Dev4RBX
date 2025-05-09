@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Script Library - Dev4RBX</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0A0A0A;
+      color: #FFFFFF;
+      padding: 20px;
+    }
+    .script-card {
+      background-color: #1A1A1A;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .script-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .learn-btn, .download-btn {
+      padding: 10px 20px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .learn-btn {
+      background-color: #007BFF;
+      color: #FFFFFF;
+    }
+    .learn-btn:hover {
+      background-color: #0056b3;
+    }
+    .download-btn {
+      background-color: #28a745;
+      color: #FFFFFF;
+    }
+    .download-btn:hover {
+      background-color: #218838;
+    }
+    .learn-section {
+      display: none;
+      margin-top: 15px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Script Library</h1>
+
+  <div class="script-card">
+    <div class="script-title">Teleport Script</div>
+    <div class="buttons">
+      <button class="learn-btn" onclick="toggleLearn('teleport')">Learn</button>
+      <a href="downloads/teleport-script.zip" class="download-btn" download>Download</a>
+    </div>
+    <div id="learn-teleport" class="learn-section">
+      <p>This script allows a player to teleport to a specific location when a part is touched. It uses event listeners and CFrame manipulation to update the player’s position instantly.</p>
+    </div>
+  </div>
+
+  <div class="script-card">
+    <div class="script-title">Leaderboard Script</div>
+    <div class="buttons">
+      <button class="learn-btn" onclick="toggleLearn('leaderboard')">Learn</button>
+      <a href="downloads/leaderboard-script.zip" class="download-btn" download>Download</a>
+    </div>
+    <div id="learn-leaderboard" class="learn-section">
+      <p>This script creates a leaderboard that updates in real-time as players score points. It uses DataStores to save and retrieve scores and binds them to a GUI element.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleLearn(id) {
+      const section = document.getElementById(`learn-${id}`);
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
